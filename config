@@ -9,6 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 set $alt Mod4
 
@@ -35,8 +36,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
+#exec --no-startup-id nm-applet
+exec --no-startup-id dropbox-cli start
 exec --no-startup-id keepassxc
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -228,16 +229,22 @@ bar {
         status_command i3blocks -c /home/bob/.config/i3blocks/i3blocks.conf
         #status_command i3blocks
 	i3bar_command i3bar
-        tray_output none
+        # tray_output primary
+        tray_output eDP-1
         font pango:monospace 11
 
         colors {
-                background $barcolor
-                separator #282828
+		statusline #ffffff
+      		background #2f343f
+      		inactive_workspace #32323200 #32323200 #5c5c5c
+
+
+#                background $barcolor
+#                separator #282828
                 #                       border          background              text
-                focused_workspace       $fws            $fws                    $textcolor
-                inactive_workspace      $ibgcolor       $ibgcolor               $itextcolor
-                urgent_workspace        $ubgcolor       $ubgcolor               $textcolor
+#                focused_workspace       $fws            $fws                    $textcolor
+#                inactive_workspace      $ibgcolor       $ibgcolor               $itextcolor
+#                urgent_workspace        $ubgcolor       $ubgcolor               $textcolor
         }
 }
 
@@ -259,3 +266,8 @@ bindsym $mod+F2 exec firefox
 
 # Start Polkit
 exec /usr/bin/polkit-dumb-agent
+
+exec /usr/bin/xrandr --output eDP-1 --primary
+
+# Restart Tray applications
+exec_always --no-startup-id "~/.config/i3/tray.sh"
