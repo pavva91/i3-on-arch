@@ -231,7 +231,6 @@ bar {
 	i3bar_command i3bar
         # tray_output primary
         tray_output eDP-1
-        font pango:monospace 11
 
         colors {
 		statusline #ffffff
