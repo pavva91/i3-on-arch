@@ -72,6 +72,11 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# screenshots
+bindsym Print exec ~/.config/i3/screenshot.sh full
+bindsym Shift+Print exec ~/.config/i3/screenshot.sh rect
+bindsym $alt+Print exec ~/.config/i3/screenshot.sh active_window
+
 # border and decoration toggle
 default_border pixel
 bindsym $mod+c border toggle
