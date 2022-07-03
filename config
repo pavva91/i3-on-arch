@@ -67,7 +67,7 @@ bindsym $alt+Print exec ~/.config/i3/screenshot.sh active_window
 
 # border and decoration toggle
 default_border pixel
-bindsym $mod+c border toggle
+bindsym $alt+c border toggle
 
 # change focus
 bindsym $mod+$left focus left
@@ -269,7 +269,9 @@ exec_always --no-startup-id "~/.config/i3/tray.sh"
 
 # Applications to start on startup
 
-exec --no-startup-id dropbox-cli start
+#exec --no-startup-id dropbox-cli start
+exec --no-startup-id nextcloud
+exec --no-startup-id synology-drive
 #exec --no-startup-id keepassxc
 exec --no-startup-id env QT_SCALE_FACTOR=1.01 keepassxc
 
@@ -278,4 +280,4 @@ exec --no-startup-id env QT_SCALE_FACTOR=1.01 keepassxc
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # startup sound, because why not?
-exec --no-startup-id mpv ~/Music/startup_audio/Microsoft\ Windows\ XP\ Startup\ Sound-7nQ2oiVqKHw.opus
+#exec --no-startup-id mpv ~/Music/startup_audio/Microsoft\ Windows\ XP\ Startup\ Sound-7nQ2oiVqKHw.opus
